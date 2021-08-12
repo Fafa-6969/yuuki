@@ -1,0 +1,21 @@
+{
+    "name": "-asdf",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "engines": {
+        "node": "12.x"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "aoi.js": "^4.4.4",
+        "discord-buttons": "^4.0.0",
+        "nekos-best.js": "^4.0.1",
+        "weky": "^3.1.2",
+        "express": "^4.17.1"
+    }
+}
