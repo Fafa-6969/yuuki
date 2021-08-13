@@ -1,6 +1,6 @@
 const aoi = require("aoi.js")
 const { TOKEN, PREFIX } = require('./config.json') 
-const ayane = new aoi.Bot({ 
+const yuuki = new aoi.Bot({ 
        token: TOKEN,
        prefix: PREFIX,
        autoUpdate: true
@@ -8,25 +8,27 @@ const ayane = new aoi.Bot({
 //client
 
 const buttons = require('discord-buttons')
-buttons(ayane.client)
+buttons(yuuki.client)
 //buttons
 
-ayane.onMessage({ respondToBots: false, guildOnly: true }) 
-ayane.onMessageDelete()
-ayane.onMessageUpdate()
+yuuki.onMessage({ respondToBots: false, guildOnly: true }) 
+yuuki.onMessageDelete()
+yuuki.onMessageUpdate()
+yuuki.onGuildJoin()
+yuuki.onGuildLeave()
 //events
 
-ayane.readyCommand({ channel: "", code: `$log[Client ($userTag[$clientID]) is now ready!]` })
+yuuki.readyCommand({ channel: "", code: `$log[Client ($userTag[$clientID]) is now ready!]` })
 //ready command
 
-ayane.loadCommands(`./projects/ayane/cmds`, true)
+yuuki.loadCommands(`./yuuki/cmds`, true)
 //command handler
 
-ayane.variables(require('./projects/ayane/handlers/var.js'))
+yuuki.variables(require('./yuuki/handlers/variables.js'))
 //variable handler
 
-ayane.status(require('./projects/ayane/handlers/status.js'))
+yuuki.status(require('./yuuki/handlers/status.js'))
 //status handler
 
-ayane.client.on('debug', console.log)
+yuuki.client.on('debug', console.log)
 //discord.js debugger
